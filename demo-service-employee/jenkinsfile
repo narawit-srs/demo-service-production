@@ -4,7 +4,7 @@ pipeline {
         registryCredential = "registryCredential"
 
         serviceName = "demo-service-employee" // Replace your serviceName
-        imageName = "$serviceName"+"$params.versionTag"  // <prefix>/serviceName // prefix = project name
+        imageName = "$serviceName"+":"+"$params.versionTag"  // <prefix>/serviceName // prefix = project name
         project = "demo-service"  
         namespace = "$project"+ "-" + "$env"
     }
