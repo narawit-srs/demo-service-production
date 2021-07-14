@@ -21,19 +21,6 @@ pipeline {
             }
         }
 
-        stage('Build DockerFile And Push') {
-            steps {
-                script {
-                    docker.withRegistry("", "${env.registryCredential}") {
-                        a = docker.build("narawitrt" + "/" + "${serviceName}" + ":"+"${env.version_tag}", "-f Dockerfile .")
-                    }
-                    docker.withRegistry("", "${env.registryCredential}") {
-                        a.push()
-                    }
-                }
-            }
-        }
-
         stage('Apply Environment variable to deployment file') {
             steps {
                 script {
