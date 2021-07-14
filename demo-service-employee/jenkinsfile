@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        env = "$params.env"
+        env = "prod"
         registryCredential = "registryCredential"
 
         serviceName = "demo-service-employee" // Replace your serviceName
